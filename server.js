@@ -14,7 +14,7 @@ app.use(express.json());
 
 // --- CẤU HÌNH TĨNH (Phục vụ file HTML) ---
 // Bạn hãy tạo thư mục tên "public" và bỏ file index.html vào đó nhé
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(__dirname));
 
 // --- [ADMIN CONFIG] LẤY TỪ ENV ---
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "admin123";
@@ -80,7 +80,7 @@ const getDriveClient = (index = 0) => {
 
 // --- ROUTE TRANG CHỦ (Để Render hiển thị giao diện) ---
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 // --- CÁC API BÊN DƯỚI GIỮ NGUYÊN ---
